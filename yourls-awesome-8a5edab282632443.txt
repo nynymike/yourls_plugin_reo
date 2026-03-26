@@ -1,0 +1,259 @@
+Directory structure:
+└── yourls-awesome/
+    ├── CONTRIBUTING.md
+    ├── LICENSE
+    └── .github/
+        ├── dependabot.yml
+        ├── scripts/
+        │   └── parse.rb
+        └── workflows/
+            ├── auto-merge.yml
+            ├── build.yml
+            └── check-links.yml
+
+================================================
+FILE: CONTRIBUTING.md
+================================================
+# Contribution Guidelines
+
+Do you want to get your work featured here, be it an article, plugin or other code ? You're at the right place.
+
+Did you Notice something missing in this curated list of awesome things related to YOURLS ? Or encountered a dead link ?
+
+## Open a pull request or file an issue in this repository
+
+The best and fastest way is to open a pull request to add, fix or remove links.
+
+Please prefer hosting your resources (code, article) somewhere users will be able to interact with you (blog comments, ideally Github issues). This way, official YOURLS resources won't be polluted by questions concerning your material.
+
+Any content, free or commercial, is welcome to be listed. Just make it clear to users.
+
+## Show off to your users
+
+On your `README` or home page, make sure your users notice that you are listed on this awesome list. This way the community will grow faster and you will eventually get more users
+
+It's totally optional, but it's a nice way to show you've been featured in an Awesome list. You can choose either the regular badge or the flat one.
+
+* [![Listed in Awesome YOURLS!](https://img.shields.io/badge/Awesome-YOURLS-C5A3BE)](https://github.com/YOURLS/awesome-yourls/)
+```
+[![Listed in Awesome YOURLS!](https://img.shields.io/badge/Awesome-YOURLS-C5A3BE)](https://github.com/YOURLS/awesome-yourls/)
+```
+
+* [![Listed in Awesome YOURLS!](https://img.shields.io/static/v1?label=Awesome&message=YOURLS&color=C5A3BE&style=plastic)](https://github.com/YOURLS/awesome-yourls/)
+```
+[![Listed in Awesome YOURLS!](https://img.shields.io/static/v1?label=Awesome&message=YOURLS&color=C5A3BE&style=plastic)](https://github.com/YOURLS/awesome-yourls/)
+```
+
+* [![Listed in Awesome YOURLS!](https://img.shields.io/static/v1?label=Awesome&message=YOURLS&color=C5A3BE&style=flat-square)](https://github.com/YOURLS/awesome-yourls/)
+```
+[![Listed in Awesome YOURLS!](https://img.shields.io/static/v1?label=Awesome&message=YOURLS&color=C5A3BE&style=flat-square)](https://github.com/YOURLS/awesome-yourls/)
+```
+
+## Code of Conduct
+
+Please note that this project is released with a
+[Contributor Code of Conduct](https://github.com/YOURLS/.github/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+
+
+
+================================================
+FILE: LICENSE
+================================================
+CC0 1.0 Universal
+
+Statement of Purpose
+
+The laws of most jurisdictions throughout the world automatically confer exclusive Copyright and Related Rights (defined below) upon the creator and subsequent owner(s) (each and all, an "owner") of an original work of authorship and/or a database (each, a "Work").
+
+Certain owners wish to permanently relinquish those rights to a Work for the purpose of contributing to a commons of creative, cultural and scientific works ("Commons") that the public can reliably and without fear of later claims of infringement build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever and for any purposes, including without limitation commercial purposes. These owners may contribute to the Commons to promote the ideal of a free culture and the further production of creative, cultural and scientific works, or to gain reputation or greater distribution for their Work in part through the use and efforts of others.
+
+For these and/or other purposes and motivations, and without any expectation of additional consideration or compensation, the person associating CC0 with a Work (the "Affirmer"), to the extent that he or she is an owner of Copyright and Related Rights in the Work, voluntarily elects to apply CC0 to the Work and publicly distribute the Work under its terms, with knowledge of his or her Copyright and Related Rights in the Work and the meaning and intended legal effect of CC0 on those rights.
+
+Copyright and Related Rights. A Work made available under CC0 may be protected by copyright and related or neighboring rights ("Copyright and Related Rights"). Copyright and Related Rights include, but are not limited to, the following:
+i. the right to reproduce, adapt, distribute, perform, display, communicate, and translate a Work;
+
+ii. moral rights retained by the original author(s) and/or performer(s);
+
+iii. publicity and privacy rights pertaining to a person's image or likeness depicted in a Work;
+
+iv. rights protecting against unfair competition in regards to a Work, subject to the limitations in paragraph 4(a), below;
+
+v. rights protecting the extraction, dissemination, use and reuse of data in a Work;
+
+vi. database rights (such as those arising under Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, and under any national implementation thereof, including any amended or successor version of such directive); and
+
+vii. other similar, equivalent or corresponding rights throughout the world based on applicable law or treaty, and any national implementations thereof.
+
+Waiver. To the greatest extent permitted by, but not in contravention of, applicable law, Affirmer hereby overtly, fully, permanently, irrevocably and unconditionally waives, abandons, and surrenders all of Affirmer's Copyright and Related Rights and associated claims and causes of action, whether now known or unknown (including existing as well as future claims and causes of action), in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each member of the public at large and to the detriment of Affirmer's heirs and successors, fully intending that such Waiver shall not be subject to revocation, rescission, cancellation, termination, or any other legal or equitable action to disrupt the quiet enjoyment of the Work by the public as contemplated by Affirmer's express Statement of Purpose.
+
+Public License Fallback. Should any part of the Waiver for any reason be judged legally invalid or ineffective under applicable law, then the Waiver shall be preserved to the maximum extent permitted taking into account Affirmer's express Statement of Purpose. In addition, to the extent the Waiver is so judged Affirmer hereby grants to each affected person a royalty-free, non transferable, non sublicensable, non exclusive, irrevocable and unconditional license to exercise Affirmer's Copyright and Related Rights in the Work (i) in all territories worldwide, (ii) for the maximum duration provided by applicable law or treaty (including future time extensions), (iii) in any current or future medium and for any number of copies, and (iv) for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes (the "License"). The License shall be deemed effective as of the date CC0 was applied by Affirmer to the Work. Should any part of the License for any reason be judged legally invalid or ineffective under applicable law, such partial invalidity or ineffectiveness shall not invalidate the remainder of the License, and in such case Affirmer hereby affirms that he or she will not (i) exercise any of his or her remaining Copyright and Related Rights in the Work or (ii) assert any associated claims and causes of action with respect to the Work, in either case contrary to Affirmer's express Statement of Purpose.
+
+Limitations and Disclaimers.
+
+a. No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.
+
+b. Affirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non infringement, or the absence of latent or other defects, accuracy, or the present or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
+
+c. Affirmer disclaims responsibility for clearing rights of other persons that may apply to the Work or any use thereof, including without limitation any person's Copyright and Related Rights in the Work. Further, Affirmer disclaims responsibility for obtaining any necessary consents, permissions or other rights required for any use of the Work.
+
+d. Affirmer understands and acknowledges that Creative Commons is not a party to this document and has no duty or obligation with respect to this CC0 or use of the Work.
+
+For more information, please see https://creativecommons.org/publicdomain/zero/1.0
+
+
+
+================================================
+FILE: .github/dependabot.yml
+================================================
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+
+
+
+================================================
+FILE: .github/scripts/parse.rb
+================================================
+#!/usr/bin/env ruby
+
+# Open README.md
+readme = 'README.md'
+content = File.read(readme)
+
+# Remove everything before `## Plugins` and after `## Themes`
+# Count all the `- [` at the beginning of lines
+count = content
+    .gsub(/^[.\s\S\r\n]*## Plugins/, '')
+    .gsub!(/## Themes[.\s\S\r\n]*$/, '')
+    .scan(/^-\s+\[/m).size
+
+if count.to_i > 100
+    print "#{count} plugins found, "
+
+    # Update <!--plugin_count-->???<!--/plugin_count--> placeholders in readme and update file
+    content.gsub!(/<!--plugin_count-->\d*?<!--\/plugin_count-->/, "<!--plugin_count-->#{count}<!--/plugin_count-->")
+    File.open(readme, "w") {|file| file.puts content }
+    puts "#{readme} updated."
+    exit(true)
+    
+else
+    puts "error (found #{count} plugins)"
+    exit(false)
+    
+end
+
+
+
+================================================
+FILE: .github/workflows/auto-merge.yml
+================================================
+# https://docs.github.com/actions
+
+name: Auto-merge
+
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  dependabot:
+    name: Dependabot
+    uses: YOURLS/.github/.github/workflows/auto-merge.yml@main
+
+
+
+================================================
+FILE: .github/workflows/build.yml
+================================================
+name: Update plugin count
+
+on:
+  #pull_request:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Generate token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ vars.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+
+      - name: Update README
+        run: ruby .github/scripts/parse.rb
+
+      - name: Git diff
+        run: |
+          git diff
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Commit and push if README changed
+        run: |
+          git config --global user.name '${{ steps.app-token.outputs.app-slug }}[bot]'
+          git config --global user.email '${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
+
+      - run: |
+          git add -A
+          git commit -m "Update plugin count" || exit 0
+          git push
+
+
+
+================================================
+FILE: .github/workflows/check-links.yml
+================================================
+name: Check links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 12 */7 * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
+    - name: Install Awesome Bot
+      run: gem install awesome_bot
+    - name: Run Awesome Bot
+      run: awesome_bot README.md --request-delay 1 --allow-ssl --allow-timeout -t 5 --allow-dupe --white-list sho.rt,your.site,long.url,awesome.re
+    - uses: actions/upload-artifact@v7
+      if: failure()
+      with:
+        name: ab-results
+        path: ab-results-README.md-filtered.json
+
+
