@@ -3,79 +3,156 @@
 Plugin Name:  Reo Tracking
 Plugin URI:   https://github.com/michaelschwartz/yourls_plugin_reo
 Description:  Injects Reo.dev analytics on every short URL redirect via an intermediate page.
-Version:      1.0.0
+Version:      1.0.3
 Author:       Michael Schwartz
 Author URI:   https://github.com/michaelschwartz
 */
 
-yourls_add_action( 'redirect_shorturl', 'reotracking_intercept' );
+yourls_add_action('redirect_shorturl', 'reotracking_intercept');
 
-/**
- * Intercept short URL redirects: serve intermediate HTML with Reo, then forward to target.
- *
- * @param string $url     Target URL from YOURLS.
- * @param string $keyword Short keyword (unused; matches hook arity).
- */
-function reotracking_intercept( $url, $keyword = '' ) {
-	if ( ! is_string( $url ) || $url === '' ) {
-		yourls_status_header( 400 );
-		die();
-	}
+function reotracking_intercept($args) {
 
-	$safe_html = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
-	$safe_js   = json_encode( $url );
+    /*
+    DEBUG BLOCK
+    Uncomment when troubleshooting hook behavior
+    */
+    /*
+    error_log('REO DEBUG: plugin loaded');
 
-	header( 'Content-Type: text/html; charset=UTF-8' );
-	yourls_status_header( 200 );
+    if (!is_array($args)) {
+        error_log('REO DEBUG: args not array');
+    } else {
+        error_log('REO DEBUG: args received: ' . print_r($args, true));
+    }
+    */
 
-	?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="refresh" content="5;url=<?php echo $safe_html; ?>">
-	<title>Redirecting…</title>
-	<script type="text/javascript">!function(){var e,t,n;e="d879136bc2a2e75",t=function(){Reo.init({clientID:"d879136bc2a2e75"})},(n=document.createElement("script")).src="https://static.reo.dev/"+e+"/reo.js",n.defer=!0,n.onload=t,document.head.appendChild(n)}();</script>
-	<script type="text/javascript">
-(function () {
-	var dest = <?php echo $safe_js; ?>;
-	function go() {
-		window.location = dest;
-	}
-	function chainReoOnload() {
-		var scripts = document.head.getElementsByTagName('script');
-		var i, s, prev;
-		for (i = scripts.length - 1; i >= 0; i--) {
-			s = scripts[i];
-			if (s.src && s.src.indexOf('static.reo.dev/') !== -1) {
-				prev = s.onload;
-				(function (node, previous) {
-					node.onload = function (ev) {
-						if (typeof previous === 'function') {
-							previous.call(node, ev);
-						}
-						go();
-					};
-				})(s, prev);
-				return true;
-			}
-		}
-		return false;
-	}
-	if (!chainReoOnload()) {
-		setTimeout(function () {
-			if (!chainReoOnload()) {
-				go();
-			}
-		}, 0);
-	}
-})();
-	</script>
-</head>
-<body>
-	<p>Redirecting, please wait…</p>
-</body>
-</html>
-	<?php
-	die();
+    if (!is_array($args) || empty($args[0]) || !is_string($args[0])) {
+
+        /*
+        DEBUG
+        error_log('REO DEBUG: invalid args');
+        */
+
+        return;
+    }
+
+    $url = $args[0];
+    $keyword = isset($args[1]) ? $args[1] : '';
+
+    /*
+    DEBUG
+    error_log('REO DEBUG: intercept fired | keyword=' . $keyword . ' | url=' . $url);
+    */
+
+    if (headers_sent()) {
+
+        /*
+        DEBUG
+        error_log('REO DEBUG: headers already sent');
+        */
+
+        return;
+    }
+
+    $safeHtml = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+    $safeJs   = json_encode($url, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+    yourls_status_header(200);
+
+    header('Content-Type: text/html; charset=UTF-8');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+
+    echo '<!DOCTYPE html>';
+    echo '<html lang="en">';
+    echo '<head>';
+
+    echo '<meta charset="UTF-8">';
+
+    /*
+    HTML fallback redirect
+    Keep slightly longer than JS redirect
+    */
+    echo '<meta http-equiv="refresh" content="1;url=' . $safeHtml . '">';
+
+    echo '<title>Redirecting…</title>';
+
+    echo '<script>';
+    echo '(function(){';
+
+    echo 'var dest = ' . $safeJs . ';';
+    echo 'var redirected = false;';
+
+    echo 'function go(){';
+    echo '    if (redirected) return;';
+    echo '    redirected = true;';
+    echo '    window.location.replace(dest);';
+    echo '}';
+
+    /*
+    fallback redirect if REO blocked or slow
+    */
+    echo 'setTimeout(go, 800);';
+
+    echo 'var s = document.createElement("script");';
+    echo 's.src = "https://static.reo.dev/d879136bc2a2e75/reo.js";';
+    echo 's.defer = true;';
+
+    echo 's.onload = function(){';
+
+    /*
+    DEBUG
+    console.log("REO script loaded");
+    */
+
+    echo '    try {';
+
+    echo '        if (window.Reo) {';
+
+    echo '            Reo.init({clientID:"d879136bc2a2e75"});';
+
+    /*
+    DEBUG
+    console.log("REO init OK");
+    */
+
+    echo '        }';
+
+    echo '    } catch (e) {';
+
+    /*
+    DEBUG
+    console.log("REO init error:", e);
+    */
+
+    echo '    }';
+
+    echo '    go();';
+    echo '};';
+
+    echo 's.onerror = function(){';
+
+    /*
+    DEBUG
+    console.log("REO script failed to load");
+    */
+
+    echo '    go();';
+    echo '};';
+
+    echo 'document.head.appendChild(s);';
+
+    echo '})();';
+    echo '</script>';
+
+    echo '</head>';
+
+    echo '<body>';
+
+    echo '<p>Redirecting…</p>';
+
+    echo '</body>';
+    echo '</html>';
+
+    exit;
 }
